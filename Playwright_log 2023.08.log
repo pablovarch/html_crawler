@@ -1,0 +1,12 @@
+2024-05-09 15:04:22,625 - INFO -  ::MainCrawler:: Crawler started Reading csv Mode  - AdSnifferPlaywright
+2024-05-09 15:04:22,625 - INFO -  --- 1 elements
+2024-05-09 15:04:24,782 - INFO -  --- Scanning 1 subdomains for seriesmy.com - form United States
+2024-05-09 15:04:24,782 - INFO -  --- scanning subdomain seriesmy.com
+2024-05-09 15:04:24,812 - INFO -  ------ Navigation with  Oxylabs proxy ------
+2024-05-09 15:04:24,812 - INFO -  --- set playwright chromium with local playwright ---
+2024-05-09 15:04:26,859 - INFO -  --- start capture traffic playwright chromium ---
+2024-05-09 15:04:46,141 - INFO - --try to capture terms --
+2024-05-09 15:04:46,815 - INFO - ::domain_attributes:: Domain_attributes updated successfully - domain_id 65 - online_status Online
+2024-05-09 15:04:46,815 - INFO -  --- save features domain ---
+2024-05-09 15:04:46,848 - INFO -  --- insert features domain - 65 ---
+2024-05-09 15:04:46,894 - INFO -  ::MainCrawler:: Crawler ended
