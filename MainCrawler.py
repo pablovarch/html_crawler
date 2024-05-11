@@ -124,6 +124,7 @@ class Crawler:
             if status_dict['online_status'] == 'Online':
                 # save feature
                 try:
+                    self.__logger.info('save html')
                     if dict_feature_domain['html_text']:
                         if self.__domain_id:
                             # num_popups = len(final_list_pop)
@@ -131,6 +132,8 @@ class Crawler:
                             dict_feature_domain['num_popups'] = num_popups
                             self.__domain_features.manage_feature(self.__domain_id, self.__date_, dict_feature_domain,
                                                                   self.__subdomain_to_scan)
+                        else:
+                            self.__logger.info('there is not html')
                 except Exception as e:
                     self.__logger.error(f'::MainCrawler::Error on save feature - {e}')
                 return True

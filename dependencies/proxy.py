@@ -13,7 +13,8 @@ class Proxy:
 
         if proxy_service == 'Brightdata':
             # Brightdata
-            proxy_data = self.get_proxy_data_bright_data(list_country_data, coun)
+            # proxy_data = self.get_proxy_data_bright_data(list_country_data, coun)
+            proxy_data = self.get_proxy_DC_brightdata(list_country_data, coun)
         else:
             # oxylabs
             proxy_data = self.get_proxy_data_oxy(list_country_data, list_country_oxy, coun)
@@ -69,6 +70,37 @@ class Proxy:
                 }
 
             return proxy_data
+        except Exception as e:
+            self.__logger.error(f" ::Get Proxy data Error:: {e}")
+
+    def get_proxy_DC_brightdata(self, list_country_data, coun):
+        try:
+            server = 'brd.superproxy.io:22225'
+            # user = 'brd-customer-hl_f416ecd9-zone-data_center-country-'
+            password = 'syqa14qy09uj'
+
+            for elem in list_country_data:
+                if coun.strip() == elem['country']:
+                    username = f"brd-customer-hl_f416ecd9-zone-data_center-country-{elem['iso_name']}"
+                    country_id = elem['country_id']
+                    country = elem['iso_name'].lower()
+                    flag = True
+                    break
+            if flag:
+                proxy_dict_playwright = {
+                    'server': server,
+                    'username': username,
+                    'password': password
+                }
+                proxy_zone = 'dc'
+                proxy_data = {
+                    'proxy_zone': proxy_zone,
+                    'country_id': country_id,
+                    'country': country,
+                    'proxy_dict': proxy_dict_playwright
+                }
+                return proxy_data
+
         except Exception as e:
             self.__logger.error(f" ::Get Proxy data Error:: {e}")
 
